@@ -49,7 +49,7 @@ Following the quiz the user is able to enter their initials to be saved to a Hig
 https://variegatedhuman.github.io/Adam-s-Javascript-Study-Guide-Quiz/
 
 ## Authors and acknowledgment
-Adam Michell using Triology Bootcamp's starter code
+Adam Michell with great help from my tutors Joem Casusi and Matthew Calimbas
 
 ## License
 MIT License
