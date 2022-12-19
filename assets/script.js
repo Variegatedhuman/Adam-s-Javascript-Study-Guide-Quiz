@@ -14,7 +14,7 @@ let highScore = document.querySelector(".scoreLeaders")
 let currentQuestion = 0
 let score = 0
 let time = 60
-let timer 
+let timer
 
 alert("Welcome! You'll have 60 seconds to complete this quiz. If you get a question wrong then you'll have 10 seconds deducted. Click start when you are ready to begin.")
 
@@ -25,7 +25,7 @@ let question = [
         choices: ["apple", "oranges", "peaches", "grapefruit"],
         answer: "apple"
     },
-    
+
 ]
 
 
@@ -44,7 +44,7 @@ let question = [
 
 
 
-function endQuiz (){
+function endQuiz() {
     questionCard.classList.add("hide");
     scoreBoard.classList.remove("hide")
     let scoreEl = document.createElement("h2")
@@ -56,32 +56,32 @@ function endQuiz (){
     // leaders()
 }
 
-function checkAnswer(){
+function checkAnswer() {
     console.log(this.dataset.value);
-    
-    if(this.dataset.value === question[currentQuestion].answer){
+
+    if (this.dataset.value === question[currentQuestion].answer) {
         alert("CORRECT!")
         score++
     } else {
         alert("Incorrect")
-        time-=10
+        time -= 10
     }
     currentQuestion++;
 
-    if (currentQuestion >= question.length){
+    if (currentQuestion >= question.length) {
         endQuiz();
     } else {
-    renderQuestion();
+        renderQuestion();
     }
 }
-function renderQuestion(){
+function renderQuestion() {
     const questionOptions = document.querySelector(".questionOptions")
-    questionOptions.innerHTML="";
-    questions.textContent =question[currentQuestion].questionTitle
+    questionOptions.innerHTML = "";
+    questions.textContent = question[currentQuestion].questionTitle
     for (let index = 0; index < question[currentQuestion].choices.length; index++) {
-        let liEl= document.createElement("li");
+        let liEl = document.createElement("li");
         liEl.textContent = question[currentQuestion].choices[index]
-        liEl.setAttribute("type","button")
+        liEl.setAttribute("type", "button")
         liEl.setAttribute("data-value", question[currentQuestion].choices[index])
         liEl.classList.add("buttons")
         liEl.addEventListener("click", checkAnswer)
@@ -89,14 +89,14 @@ function renderQuestion(){
     }
 }
 
-function timerCountdown(){
+function timerCountdown() {
     timer = setInterval(() => {
-        if(time === 0){
+        if (time === 0) {
             clearInterval(timer)
             endQuiz()
         } else {
-        time--
-        currentTime.textContent= time
+            time--
+            currentTime.textContent = time
         }
     }, 1000);
 
@@ -109,19 +109,19 @@ function startQuiz() {
     timerCountdown();
 }
 
-function openLeaderBoard(){
-    
+function openLeaderBoard() {
+
     scoreBoard.classList.add("hide")
     leaderBoard.classList.remove("hide")
     highScoreBanner.classList.remove("hide")
     timerDisplay.classList.add("hide")
-  
+
 
     // leaderBoard.innerHTML = "Highscores"
 
-    
 
-    }
+
+}
 
 // function saveUserScore() {
 //     let userScore = {
@@ -130,7 +130,7 @@ function openLeaderBoard(){
 //     };
 //     localStorage.setItem("userScore", JSON.stringify(userScore));
 //   }
-  
+
 //   function renderLastScore() {
 //     let lastScore = JSON.parse(localStorage.getItem("userScore"));
 //     if (lastScore !== null) {
@@ -143,56 +143,61 @@ function openLeaderBoard(){
 
 
 startButton.addEventListener("click", startQuiz)
-restartButton.addEventListener("click",function(){
+restartButton.addEventListener("click", function () {
     window.location.replace("./index.html");
 
 });
 
-initialButton.addEventListener("click", function(){
-    openLeaderBoard();
+initialButton.addEventListener("click", function () {
+
 
     let userData = initials.value;
 
-        if (userData === null) {
+    if (userData == "" || userData.length == 0 || userData == null) {
 
-            alert("Please enter initials");
-            return
+        alert("Please enter initials");
+        return
 
-        } else {
-            let currentScore = {
-                userData: userData,
-                score: score,
-            }
-            console.log(currentScore);
-            let allScores = localStorage.getItem("allScores");
-            if (allScores === null) {
-                allScores = [];
-            } else {
-                allScores = JSON.parse(allScores);
-            }
-            allScores.push(currentScore);
-            let newScore = JSON.stringify(allScores);
-            localStorage.setItem("allScores", newScore);
+    } else {
+        let currentScore = {
+            userData: userData,
+            score: score,
         }
-
-
+        console.log(currentScore);
         let allScores = localStorage.getItem("allScores");
-        allScores = JSON.parse(allScores);
-    
-        if (allScores !== null) {
-    
+        if (allScores === null) {
+            allScores = [];
+        } else {
+            allScores = JSON.parse(allScores);
+        }
+        allScores.push(currentScore);
+        let newScore = JSON.stringify(allScores);
+        localStorage.setItem("allScores", newScore);
+        openLeaderBoard();
+    }
+
+
+    let allScores = localStorage.getItem("allScores");
+    allScores = JSON.parse(allScores);
+
+    if (allScores !== null) {
+
         for (let i = 0; i < allScores.length; i++) {
-    
+
             let createLi = document.createElement("li");
             createLi.textContent = allScores[i].userData + " scored " + allScores[i].score + " point(s)";
             highScore.appendChild(createLi);
 
         }
-        }
+    }
 });
 
 
+function compareScores() {
 
+
+
+}
 
 
 

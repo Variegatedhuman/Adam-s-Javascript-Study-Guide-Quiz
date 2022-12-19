@@ -1,6 +1,6 @@
-html{
-     background-color: rgb(105, 183, 255);
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+html {
+    background-color: rgb(105, 183, 255);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
 
 }
@@ -15,53 +15,53 @@ h1 {
 }
 
 h1 span:nth-child(10n + 1) {
-  color: #ff5e00;
+    color: #ff5e00;
 }
 
 h1 span:nth-child(10n + 2) {
-  color: #ab47bc;
+    color: #ab47bc;
 }
 
-h1 span:nth-child(10n + 3){
-  color: #651fff;
+h1 span:nth-child(10n + 3) {
+    color: #651fff;
 }
 
-h1 span:nth-child(10n + 5){
-  color: #3949ab;
+h1 span:nth-child(10n + 5) {
+    color: #3949ab;
 }
 
 h1 span:nth-child(10n + 4) {
-  color: #2196f3;
+    color: #2196f3;
 }
 
-h1 span:nth-child(10n + 6){
-  color: #d40000;
+h1 span:nth-child(10n + 6) {
+    color: #d40000;
 }
 
-h1 span:nth-child(10n + 7){
-  color: #00f008;
+h1 span:nth-child(10n + 7) {
+    color: #00f008;
 }
 
-h1 span:nth-child(10n + 8){
-  color: #fffb07;
+h1 span:nth-child(10n + 8) {
+    color: #fffb07;
 }
 
-h1 span:nth-child(10n + 9){
-  color: #008800;
+h1 span:nth-child(10n + 9) {
+    color: #008800;
 }
 
-h1 span:nth-child(10n + 10){
-  color: #9800ad;
+h1 span:nth-child(10n + 10) {
+    color: #9800ad;
 }
 
 
-.mainMenu  {
+.mainMenu {
     flex: auto;
     text-align: center;
     margin-top: 5%;
     padding: 5%;
 
-    
+
 }
 
 .mainMenu button {
@@ -130,13 +130,13 @@ h1 span:nth-child(10n + 10){
 
 }
 
-.questionOptions li span{ 
+.questionOptions li span {
     position: relative;
     margin-left: -10%;
 
 }
 
-.questionOptions button{
+.questionOptions button {
     width: 40%;
     height: 2rem;
     padding: 1%;
