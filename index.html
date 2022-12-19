@@ -9,15 +9,17 @@
 
 </head>
 <body>
-  <h4><strong>View Highscore</strong></h4>
+    <h4 class="timer"><strong>Timer:<span id="currentTime"></span></strong></h4>
+        <div class="highScoreLeaderboard hide" ><strong>Highscores</strong>
+                <ol class="scoreLeaders">
+                    <li class="user-Score"></li>
+                    
+                </ol>
+        </div>
     <section class="mainMenu">
-        <nav class="highScoreLeaderboard">
-            
-        <button id="start-button" type="button"><strong>START</strong></button>
-
-        </nav>
+         <button id="start-button" type="button"><strong>START</strong></button>
     </section>
-        <h4><strong>Timer:<span id="currentTime"></span></strong></h4>
+        
     <section class="questionCards hide">
         
         <h2 class="questions"></h2>
@@ -28,7 +30,14 @@
                 <li><span></span><button id="choice-4" type="button"></button></span></li> -->
             </ol>
     </section>
-    <section class="scoreBoard hide"></section>
+    <section class="scoreBoard hide">
+            <button type="button" id="initialButton">Submit</button>
+            <input type="text" id="initialText"><br>
+            <label><strong>Please enter your initials</strong></label><br>
+
+
+    </section>
+    
 
     <script rel= "javascript" src="./assets/script.js"></script>
 </body>
