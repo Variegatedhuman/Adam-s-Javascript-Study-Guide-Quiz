@@ -6,6 +6,11 @@ const currentTime = document.querySelector("#currentTime")
 const initialButton = document.querySelector("#initialButton")
 const scoreBoard = document.querySelector(".scoreBoard")
 const initials = document.querySelector("#initialText")
+const highScoreBanner = document.querySelector(".highScoreBanner")
+const restartButton = document.querySelector("#restart")
+const timerDisplay = document.querySelector(".timer")
+let highScore = document.querySelector(".scoreLeaders")
+
 let currentQuestion = 0
 let score = 0
 let time = 60
@@ -14,7 +19,7 @@ let timer
 alert("Welcome! You'll have 60 seconds to complete this quiz. If you get a question wrong then you'll have 10 seconds deducted. Click start when you are ready to begin.")
 
 
-var question = [
+let question = [
     {
         questionTitle: "Some'll win, some will lose Some are born to sing the blues Whoa, the movie never ends It goes on and on and on and on?",
         choices: ["apple", "oranges", "peaches", "grapefruit"],
@@ -30,7 +35,7 @@ var question = [
 // function leaders(){
 //     const scoreLeaders = document.querySelector(".scoreLeaders")
 //     scoreLeaders.innerHTML="";
-//         var scoreLeadersEl= document.createElement("li");
+//         let scoreLeadersEl= document.createElement("li");
 //         scoreLeadersEl.textContent = localStorage.getItem(score)
 //         scoreLeadersEl.textContent = localStorage.getItem(initials)
 //         leaderBoard.appendChild(scoreLeadersEl)
@@ -74,7 +79,7 @@ function renderQuestion(){
     questionOptions.innerHTML="";
     questions.textContent =question[currentQuestion].questionTitle
     for (let index = 0; index < question[currentQuestion].choices.length; index++) {
-        var liEl= document.createElement("li");
+        let liEl= document.createElement("li");
         liEl.textContent = question[currentQuestion].choices[index]
         liEl.setAttribute("type","button")
         liEl.setAttribute("data-value", question[currentQuestion].choices[index])
@@ -105,34 +110,92 @@ function startQuiz() {
 }
 
 function openLeaderBoard(){
+    
     scoreBoard.classList.add("hide")
     leaderBoard.classList.remove("hide")
-    
-}
-
-function saveUserScore() {
-    var userScore = {
-      user: initials.value,
-      currentScore: score.value,
-    };
-    localStorage.setItem("userScore", JSON.stringify(userScore));
-  }
+    highScoreBanner.classList.remove("hide")
+    timerDisplay.classList.add("hide")
   
-  function renderLastScore() {
-    var lastScore = JSON.parse(localStorage.getItem("userScore"));
-    if (lastScore !== null) {
-    document.getElementsByClassName("user-Score").innerHTML = lastScore.user;
-    document.getElementsByClassName("user-Score").innerHTML = lastScore.currentScore;
-    } else {
-      return;
+
+    // leaderBoard.innerHTML = "Highscores"
+
+    
+
     }
-  }
+
+// function saveUserScore() {
+//     let userScore = {
+//       user: initials.value,
+//       currentScore: score.value,
+//     };
+//     localStorage.setItem("userScore", JSON.stringify(userScore));
+//   }
+  
+//   function renderLastScore() {
+//     let lastScore = JSON.parse(localStorage.getItem("userScore"));
+//     if (lastScore !== null) {
+//     document.getElementsByClassName("user-Score").innerHTML = lastScore.user;
+//     document.getElementsByClassName("user-Score").innerHTML = lastScore.currentScore;
+//     } else {
+//       return;
+//     }
+//   }
 
 
 startButton.addEventListener("click", startQuiz)
-initialButton.addEventListener("click", function(event) {
-    event.preventDefault
-    openLeaderBoard();
-    saveUserScore();
-    renderLastScore();
+restartButton.addEventListener("click",function(){
+    window.location.replace("./index.html");
+
 });
+
+initialButton.addEventListener("click", function(){
+    openLeaderBoard();
+
+    let userData = initials.value;
+
+        if (userData === null) {
+
+            alert("Please enter initials");
+            return
+
+        } else {
+            let currentScore = {
+                userData: userData,
+                score: score,
+            }
+            console.log(currentScore);
+            let allScores = localStorage.getItem("allScores");
+            if (allScores === null) {
+                allScores = [];
+            } else {
+                allScores = JSON.parse(allScores);
+            }
+            allScores.push(currentScore);
+            let newScore = JSON.stringify(allScores);
+            localStorage.setItem("allScores", newScore);
+        }
+
+
+        let allScores = localStorage.getItem("allScores");
+        allScores = JSON.parse(allScores);
+    
+        if (allScores !== null) {
+    
+        for (let i = 0; i < allScores.length; i++) {
+    
+            let createLi = document.createElement("li");
+            createLi.textContent = allScores[i].userData + " scored " + allScores[i].score + " point(s)";
+            highScore.appendChild(createLi);
+
+        }
+        }
+});
+
+
+
+
+
+
+
+
+

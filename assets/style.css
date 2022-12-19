@@ -4,9 +4,56 @@ html{
 
 
 }
+
 h1 {
     text-align: center;
+    background-color: rgb(105, 183, 255);
+    font: 50px underline;
+    font-weight: bolder;
+    margin-right: 30%;
+    margin-left: 30%;
 }
+
+h1 span:nth-child(10n + 1) {
+  color: #ff5e00;
+}
+
+h1 span:nth-child(10n + 2) {
+  color: #ab47bc;
+}
+
+h1 span:nth-child(10n + 3){
+  color: #651fff;
+}
+
+h1 span:nth-child(10n + 5){
+  color: #3949ab;
+}
+
+h1 span:nth-child(10n + 4) {
+  color: #2196f3;
+}
+
+h1 span:nth-child(10n + 6){
+  color: #d40000;
+}
+
+h1 span:nth-child(10n + 7){
+  color: #00f008;
+}
+
+h1 span:nth-child(10n + 8){
+  color: #fffb07;
+}
+
+h1 span:nth-child(10n + 9){
+  color: #008800;
+}
+
+h1 span:nth-child(10n + 10){
+  color: #9800ad;
+}
+
 
 .mainMenu  {
     flex: auto;
