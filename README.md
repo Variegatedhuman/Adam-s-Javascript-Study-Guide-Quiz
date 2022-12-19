@@ -43,10 +43,10 @@ Quiz ends when all questions are answered or timer reaches 0
 Following the quiz the user is able to enter their initials to be saved to a High Score Leader Board
 
 ## Screenshot of deployed site
-![Adam's Random Password Generator](assets/Deployed.png)
+![Adam's Javascript Study Guide Quiz](assets/quiz.png)
 
 ## Link to deployed site
-https://variegatedhuman.github.io/Random-Password-Generator/
+https://variegatedhuman.github.io/Coding-Quiz/
 
 ## Authors and acknowledgment
 Adam Michell using Triology Bootcamp's starter code
