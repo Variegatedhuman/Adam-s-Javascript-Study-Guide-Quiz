@@ -21,12 +21,43 @@ alert("Welcome! You'll have 60 seconds to complete this quiz. If you get a quest
 
 let question = [
     {
-        questionTitle: "Some'll win, some will lose Some are born to sing the blues Whoa, the movie never ends It goes on and on and on and on?",
-        choices: ["apple", "oranges", "peaches", "grapefruit"],
-        answer: "apple"
+        questionTitle: "Javascript is an alternative term for which of the following?",
+        choices: ["java", "python", "html", "none of the above"],
+        answer: "none of the above"
+    },
+
+    {
+        questionTitle: "The DOM stands for?",
+        choices: ["Direct Organizational Material", "Don't Oppose the Machines", "Document Object Model", "none of the above"],
+        answer: "Document Object Model"
+    },
+
+    {
+        questionTitle: "|| is a logical operator which means what?",
+        choices: ["Not", "Or", "And", "In-between"],
+        answer: "Or"
+    },
+
+    {
+        questionTitle: "In Javascript % is an Arithmetic Operator which means?",
+        choices: ["Remainder", "Percentage", "Division", "none of the above"],
+        answer: "Remainder"
+    },
+
+    {
+        questionTitle: "JSON stands for?",
+        choices: ["Jason the creator of Javascript", "Javascript Object Notation", "Javascript Orientation Notation", "none of the above"],
+        answer: "Javascript Object Notation"
+    },
+
+    {
+        questionTitle: "Which removes the last element of an array, and returns that element?",
+        choices: ["pop()", "push()", "pounce()", "none of the above"],
+        answer: "pop()"
     },
 
 ]
+
 
 
 
@@ -191,15 +222,6 @@ initialButton.addEventListener("click", function () {
         }
     }
 });
-
-
-function compareScores() {
-
-
-
-}
-
-
 
 
 
